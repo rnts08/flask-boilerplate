@@ -24,15 +24,15 @@ or split the app up with BluePrints.
 
 ## Installation
 
-git clone https://github.com/rnts08/flask-boilerplate.git myapp
-cd myapp
-(Edit config.py, create database and user in mysql)
-virtualenv .env --no-site-packages
-source .env/bin/activate
-pip install -r /path/to/requirements.txt
-python webapp.py
+- git clone https://github.com/rnts08/flask-boilerplate.git myapp
+- cd myapp
+- (Edit config.py, create database and user in mysql)
+- virtualenv .env --no-site-packages
+- source .env/bin/activate
+- pip install -r /path/to/requirements.txt
+- python webapp.py
 
-Browse to http://localhost:9000
+Done, browse to http://localhost:9000
 
 If you've setup MySQL you can go to http://localhost:9000/init_db and it should
 create your table(s) according to models.py. Don't forget to update config.py 
