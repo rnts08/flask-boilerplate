@@ -43,3 +43,10 @@ If you like or use this, feel free to donate to
 
 BTC: 1rntsUZrVkfbNNixDcVoaFwEKeAYff6jb
 LTC: LWbNEKnRtqhq3bh2A6AjmeYZJmjk9HbPGi
+
+## License
+Because, why not. CDDL-style license, the software is provided as-is, I can't be
+held responsible for anything, patent trolls can go and die in a fire and if 
+you meet me, you might buy me a beer at your own discretion.
+
+http://opensource.org/licenses/CDDL-1.0
