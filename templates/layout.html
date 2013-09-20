@@ -24,6 +24,22 @@
                     <ul class="nav nav-pills pull-right">
                         <li><a href="/">Home</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% if not session.is_authenticated %}
+                        <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon-signin"></i> Login <strong class
+="caret"></strong></a>
+                        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                            <form method="post" action="{{ url_for('login') }}" accept-charset="UTF-8">
+                                <input style="margin-bottom: 15px;" type="text" placeholder="E-mail" id="email" name="email">
+                                <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+                                <button class="btn btn-info btn-block" type="submit"><i class="icon-signin"></i> Login </button>
+                            </form>
+                        </div>
+                        </li>                    
+                    {% else %}
+                        <li class="divider"></li>
+                        <li><a href="{{ url_for('logout') }} "><i class="icon-signout"></i> Logout</a></li>
+                    {% endif %}
                     </ul>
                     <h3><i class="{{ config.SITE_ICON }}"></i>&nbsp;{{ config.SITE_NAME }} <small class="muted">A simple Flask Boilerplate</small></h3>
                 </div>                

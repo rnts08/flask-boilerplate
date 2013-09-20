@@ -75,10 +75,18 @@ def login():
             return redirect( url_for('login') )
     """
     if request.method == 'GET':
-        return render_template('login.html')
+        return redirect( url_for('show_index') )
     else:
+        session['is_authenticated'] = True
         flash('Successfully logged in', 'success')
         return redirect( url_for('show_index') )
+
+@app.route('/logout')
+def logout():
+    session['is_authenticated'] = False
+    session.clear()
+    flash(u'Successfully logged out.', 'success')
+    return redirect( url_for('show_index') )    
 
 @app.route('/protected')
 @requires_auth
