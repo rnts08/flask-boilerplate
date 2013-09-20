@@ -41,6 +41,7 @@ def register():
             form.password = hash_password(form.password) 
             form.populate_obj(user)
             user.save()
+            app.logger.info('New User registered')
             flash("User registered successfully", 'success')
             return redirect( url_for('show_index') )
         else:
@@ -77,6 +78,7 @@ def login():
     if request.method == 'GET':
         return redirect( url_for('show_index') )
     else:
+        app.logger.debug('User %s logged in' % request.form['email'])
         session['is_authenticated'] = True
         flash('Successfully logged in', 'success')
         return redirect( url_for('show_index') )
