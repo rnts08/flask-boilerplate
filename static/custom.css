@@ -1,0 +1,73 @@
+
+html {
+    overflow-y: scroll;
+}
+html,
+body {
+  height: 100%;
+}
+body { 
+    background: url(/static/images/pixel_weave.png) repeat 0 0; */
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+}
+
+#push,
+#footer {
+  height: 60px;
+}
+#footer {
+  background-color: #f5f5f5;
+}
+
+.container {
+  width: auto;
+  margin: 0 auto;
+  max-width: 760px;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+.container .page {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.container > hr {
+  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 2px 0;
+}
+
+.jumbotron {
+  margin: 90px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.page p + h4 {
+  margin-top: 28px;
+}
+
+.fineprint {
+  font-size: 11px;
+  margin: 50px 50px 50px 50px;
+  position: relative;
+  text-align: center;
+}
+
+.center-table {
+  margin: 0 auto !important;
+  float: none !important;
+}
+

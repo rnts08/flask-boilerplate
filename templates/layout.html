@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+    <title>{{ config.SITE_NAME }}</title>
+        <meta charset="utf-8" />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="" />
+        <meta name="description" content=""/>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='custom.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='custom.js') }}"></script>
+    </head>
+    <body>
+        <div id="wrap">
+            <a id="top"></a>
+            <div class="body">
+
+            <div class="container">
+                <!-- header -->
+                <div class="masthead">
+                    <ul class="nav nav-pills pull-right">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    </ul>
+                    <h3><i class="{{ config.SITE_ICON }}"></i>&nbsp;{{ config.SITE_NAME }} <small class="muted">A simple Flask Boilerplate</small></h3>
+                </div>                
+                {% for category, message in get_flashed_messages(with_categories=true) %}
+                <div class="row">
+                <div class="alert alert-{{ category }}">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    {{ message }}
+                </div>
+                </div>
+                {% endfor %}
+                <!-- end-header -->
+                <!-- page-body -->
+                {% block body %}{% endblock %}
+                <!-- end-page-body -->
+            </div>
+
+            </div>
+           <div id="push"></div>
+        </div>
+        <div id="footer">
+        <div class="container">
+            <p class="muted credit">{{ config.COPYRIGHT_NOTICE|safe }} <a href="mailto:{{ config.CONTACT_MAIL }}">{{ config.CONTACT_MAIL|safe }}</a>&nbsp;<a href="#top" class="pull-right">&uarr; Top</a></p>
+        </div>            
+        </div>
+    </body>
+</html>
+

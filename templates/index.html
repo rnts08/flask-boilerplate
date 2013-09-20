@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row page"> 
+    <div class="jumbotron"><!-- jumbotron -->
+        <h1><i class="{{ config.SITE_ICON }} icon-4x"></i></h1>
+        <p class="lead">
+            Writing simple Flask-Applications often?
+        </p>
+        <p>
+            Why not base it off rnts08/flask-boilerplate? Get the basics with a single git-command<br/><code>git clone https://github.com/rnts08/flask-boilerplate.git myapp</code>'
+        </p>
+    </div><!-- jumbotron -->
+</div> 
+<hr/>
+<div class="row page">
+    <h2>Introduction</h2>
+    <p>
+        I got tired of copying and pasting my corner-stone files every time i was
+        going to write a single flask application, so I generalized the code and 
+        created flask-boilerplate. I've seen numours boilerplats and foundations 
+        on github but all of them contained to much complexity, I just wanted the
+        basics. I don't want Blueprints or Tests. 
+    </p>
+    <p>
+        I've included the basic features and some <em>Howto's</em> for commonly
+        used solutions, such as passing simple functions to Jinja, for example,
+        you are visiting from <strong>{{ client_ip() }}</strong> and a nicely 
+        formatted <em>now()</em> that can be used in your templates look likes 
+        like this: <strong>{{ timestamp() }}</strong>.
+    </p>
+    <h2>Question &amp; Ideas</h2>
+    <p>
+        Feel free to fork and make pull-requests on github, or send me an e-mail
+        with this form:<br/>
+        <form method="post" action="{{ url_for('send_email') }}">
+          <fieldset>
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" placeholder="">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+            <br/>
+            <button type="submit" class="btn">Send</button>
+          </fieldset>
+        </form>            
+        <br/>
+        Note: I have no shame and mix WTForms and standard HTML-forms freely, and this form uses the utils.send_message() method.
+    </p>
+    <h2>Other functions in use</h2>
+    <p>
+        I've included some other functions, such as a decorator for authentication, 
+        located in 'decorators.py', test it with <a href="{{ url_for('protected_url') }}">
+        this link</a>.
+    </p>
+    <h2>Donate</h2>
+    <p>
+    If you wish to help and push the development forward please feel free to donate to the project;<br/>
+        BTC: <strong>1rntsUZrVkfbNNixDcVoaFwEKeAYff6jb</strong><br/>
+        LTC: <strong>LTCrntsYhkrUBnMmzmYSme5Qb9tvyzXyke</strong><br/>
+    </p>
+    <p class="fineprint">
+    </p>
+</div>
+<hr/>
+{% endblock %}
