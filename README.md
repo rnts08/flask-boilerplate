@@ -1,11 +1,12 @@
-flask-boilerplate
+YetAnotherFlaskBoilerPlate
 =================
+(Was: Flask-Boilerplate)
 
 A flask-app boilerplate WITHOUT blueprints and extra fluff, I'm using this for 
 smaller and larger projects where I don't need to use the app-factory pattern 
 or split the app up with BluePrints.
 
-## This app uses the following packages (see requirements.txt)
+## Requirements
 * Flask
 * Bootstrap 2.3.2
 * jQuery 1.10.1
