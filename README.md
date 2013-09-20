@@ -50,3 +50,5 @@ held responsible for anything, patent trolls can go and die in a fire and if
 you meet me, you might buy me a beer at your own discretion.
 
 http://opensource.org/licenses/CDDL-1.0
+
+Each plugin and component might have it's own license that applies. 
