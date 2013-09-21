@@ -6,15 +6,18 @@ A flask-app boilerplate WITHOUT blueprints and extra fluff, I'm using this for
 smaller and larger projects where I don't need to use the app-factory pattern 
 or split the app up with BluePrints.
 
-## Requirements
-* Flask
-* Bootstrap 2.3.2
-* jQuery 1.10.1
-* flask-SQLAlchemy (MySQL)
-* flask-mail (With asyncronous sending just for show)
-* flask-wtforms
+## Special Features
+* Send e-mail with flask-mail
+* Passing class methods to a SQLAlchemy class (models.py/dbCRUD)
+* Crossdomain JSON functionality (decorators.py/jsonp)
+* Shooting off threads for blocking methods (decorators.py/async)
+* Static robots.txt and favicon.ico routes
+* Decorated authentication (decorators.py/requires_auth)
+* WTForms usage
+* SQLAlchemy usage
 * Logging
-* Passlib (py-bcrypt)
+* bcrypt-hashing/verification of 'passwords'
+* And More
 
 ## Design/Layout decisions
 * Bootstrap Navbar
