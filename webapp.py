@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, request, session, redirect, url_for, \
-                  abort, render_template, flash, send_from_directory
+                  abort, render_template, flash, send_from_directory, \
+                  jsonify
 
 from flask.ext.mail import Mail
 
@@ -11,7 +12,7 @@ from logging import FileHandler, Formatter
 from models import db, User
 from forms import RegistrationForm
 from utils import timestamp, is_email, get_client_ip, hash_password, verify_password
-from decorators import requires_auth
+from decorators import requires_auth, jsonp
 
 # Initialize application
 app = Flask(__name__)
@@ -95,6 +96,12 @@ def logout():
 def protected_url():
     flash('Authentication successful','success')
     return redirect( url_for('show_index') )
+
+@app.route('/crossdomain_json')
+@jsonp
+def crossdomain_json():
+    data = {'this': 'can', 'be': 'called', 'remotely': 'yeah!'}
+    return jsonify(data)
 
 """
     Static resources
