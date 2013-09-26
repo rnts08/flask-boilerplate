@@ -2,7 +2,7 @@
 
 import datetime
 import re
-from flask import request
+from flask import request, flash
 from passlib.hash import bcrypt
 
 def timestamp():
@@ -26,3 +26,14 @@ def hash_password(password):
 
 def verify_password(password, hash):
     return bcrypt.verify(password, hash)
+
+def flash_errors(form):
+    """
+        Flash all errors for a form, this was copied from;
+        https://github.com/sloria/cookiecutter-flask/
+        I liked the recipe/idea.
+    """
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash("Error in the {0} field - {1}"
+                    .format(getattr(form, field).label.text, error), 'warning')

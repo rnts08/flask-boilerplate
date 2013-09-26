@@ -4,6 +4,7 @@
     <h2>Register Now!</h2>
 {% from "formhelper.html" import render_field %}
     <form method="post" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
         <dl>
             {{ render_field(form.name) }}
             {{ render_field(form.email) }}

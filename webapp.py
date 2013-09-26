@@ -4,14 +4,14 @@ from flask import Flask, request, session, redirect, url_for, \
                   abort, render_template, flash, send_from_directory, \
                   jsonify
 
-from flask.ext.mail import Mail
+from sqlalchemy.exc import IntegrityError, OperationalError
 
 import logging
 from logging import FileHandler, Formatter
 
 from models import db, User
 from forms import RegistrationForm
-from utils import timestamp, is_email, get_client_ip, hash_password, verify_password
+from utils import timestamp, is_email, get_client_ip, hash_password, verify_password, flash_errors
 from decorators import requires_auth, jsonp
 
 # Initialize application
@@ -38,15 +38,23 @@ def register():
     elif request.method == 'POST':
         if form.validate_on_submit():
             user = User()
-            # overwrite the old password with a bcrypt-hash
-            form.password = hash_password(form.password) 
             form.populate_obj(user)
-            user.save()
-            app.logger.info('New User registered')
-            flash("User registered successfully", 'success')
+            # overwrite the old password with a bcrypt-hash
+            user.password = hash_password(user.password)
+            try:
+                user.save()
+                app.logger.info('New user registered')
+                flash('User registered successfully', 'success')
+            except IntegrityError as err:
+                app.logger.warning('Could not register user: {0}'.format(err))
+                flash('User could not be registered, please try again', 'error')
+            except OperationalError as err:
+                app.logger.warning('MySQL Error: {0!s}'.format(err))
+                flash('{0!s}'.format(err))
+
             return redirect( url_for('show_index') )
         else:
-            flash("Could not register user!", 'error')
+            flash_errors(form)
         return render_template('register.html', form=form)
 
 @app.route('/email', methods=['POST'])
