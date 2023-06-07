@@ -1,3 +1,5 @@
+NOTE: OBSOLETE Python 2.x environment! Do not use!
+
 YetAnotherFlaskBoilerPlate
 =================
 (Was: Flask-Boilerplate)
@@ -41,12 +43,6 @@ Done, browse to http://localhost:9000
 If you've setup MySQL you can go to http://localhost:9000/init_db and it should
 create your table(s) according to models.py. Don't forget to update config.py 
 and set DB_CREATED=True. 
-
-## Donate
-If you like or use this, feel free to donate to
-
-BTC: 1rntsUZrVkfbNNixDcVoaFwEKeAYff6jb
-LTC: LWbNEKnRtqhq3bh2A6AjmeYZJmjk9HbPGi
 
 ## License
 Because, why not. CDDL-style license, the software is provided as-is, I can't be
