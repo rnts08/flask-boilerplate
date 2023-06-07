@@ -1,4 +1,4 @@
-NOTE: OBSOLETE Python 2.x environment! Do not use!
+NOTE: OBSOLETE Python, plugins and environment! Do not use!
 
 YetAnotherFlaskBoilerPlate
 =================
